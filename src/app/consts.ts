@@ -1,82 +1,103 @@
-import alpacaLogo from '~/assets/alpaca-logo.png'
-import claudeLogo from '~/assets/anthropic-logo.png'
-import bardLogo from '~/assets/bard-logo.svg'
-import bingLogo from '~/assets/bing-logo.svg'
-import chatglmLogo from '~/assets/chatglm-logo.svg'
-import chatgptLogo from '~/assets/chatgpt-logo.svg'
-import vicunaLogo from '~/assets/vicuna-logo.jpg'
-import xunfeiLogo from '~/assets/xunfei-logo.png'
-import koalaLogo from '~/assets/koala-logo.jpg'
-import dollyLogo from '~/assets/dolly-logo.png'
-import llamaLogo from '~/assets/llama-logo.png'
-import stablelmLogo from '~/assets/stablelm-logo.png'
-import oasstLogo from '~/assets/oasst-logo.svg'
-import rwkvLogo from '~/assets/rwkv-logo.png'
+import claudeLogo from '~/assets/logos/anthropic.png'
+import baichuanLogo from '~/assets/logos/baichuan.png'
+import bardLogo from '~/assets/logos/bard.svg'
+import bingLogo from '~/assets/logos/bing.svg'
+import chatglmLogo from '~/assets/logos/chatglm.svg'
+import chatgptLogo from '~/assets/logos/chatgpt.svg'
+import falconLogo from '~/assets/logos/falcon.jpeg'
+import geminiLogo from '~/assets/logos/gemini.png'
+import grokLogo from '~/assets/logos/grok.png'
+import llamaLogo from '~/assets/logos/llama.png'
+import mistralLogo from '~/assets/logos/mistral.png'
+import piLogo from '~/assets/logos/pi.png'
+import pplxLogo from '~/assets/logos/pplx.jpg'
+import qianwenLogo from '~/assets/logos/qianwen.png'
+import vicunaLogo from '~/assets/logos/vicuna.jpg'
+import wizardlmLogo from '~/assets/logos/wizardlm.png'
+import xunfeiLogo from '~/assets/logos/xunfei.png'
+import yiLogo from '~/assets/logos/yi.svg'
 import { BotId } from './bots'
-import i18n from './i18n'
 
-export const CHATBOTS: Record<BotId, { name: string; avatar: any }> = {
+export const CHATBOTS: Record<BotId, { name: string; avatar: string }> = {
   chatgpt: {
     name: 'ChatGPT',
     avatar: chatgptLogo,
-  },
-  bing: {
-    name: 'Bing',
-    avatar: bingLogo,
-  },
-  bard: {
-    name: 'Bard',
-    avatar: bardLogo,
   },
   claude: {
     name: 'Claude',
     avatar: claudeLogo,
   },
-  xunfei: {
-    name: i18n.t('iFlytek Spark'),
-    avatar: xunfeiLogo,
+  bard: {
+    name: 'Bard',
+    avatar: bardLogo,
   },
-  chatglm: {
-    name: 'ChatGLM',
-    avatar: chatglmLogo,
+  bing: {
+    name: 'Bing',
+    avatar: bingLogo,
   },
-  alpaca: {
-    name: 'Alpaca',
-    avatar: alpacaLogo,
+  perplexity: {
+    name: 'Perplexity',
+    avatar: pplxLogo,
+  },
+  llama: {
+    name: 'Llama 2',
+    avatar: llamaLogo,
+  },
+  gemini: {
+    name: 'Gemini Pro',
+    avatar: geminiLogo,
+  },
+  mistral: {
+    name: 'Mixtral',
+    avatar: mistralLogo,
   },
   vicuna: {
     name: 'Vicuna',
     avatar: vicunaLogo,
   },
-  koala: {
-    name: 'Koala',
-    avatar: koalaLogo,
+  falcon: {
+    name: 'Falcon',
+    avatar: falconLogo,
   },
-  dolly: {
-    name: 'Dolly',
-    avatar: dollyLogo,
+  grok: {
+    name: 'Grok',
+    avatar: grokLogo,
   },
-  llama: {
-    name: 'LLaMA',
-    avatar: llamaLogo,
+  pi: {
+    name: 'Pi',
+    avatar: piLogo,
   },
-  stablelm: {
-    name: 'StableLM',
-    avatar: stablelmLogo,
+  wizardlm: {
+    name: 'WizardLM',
+    avatar: wizardlmLogo,
   },
-  oasst: {
-    name: 'OpenAssistant',
-    avatar: oasstLogo,
+  chatglm: {
+    name: 'ChatGLM2',
+    avatar: chatglmLogo,
   },
-  rwkv: {
-    name: 'ChatRWKV',
-    avatar: rwkvLogo,
+  xunfei: {
+    name: 'iFlytek Spark',
+    avatar: xunfeiLogo,
+  },
+  qianwen: {
+    name: 'Qianwen',
+    avatar: qianwenLogo,
+  },
+  baichuan: {
+    name: 'Baichuan',
+    avatar: baichuanLogo,
+  },
+  yi: {
+    name: 'Yi-Chat',
+    avatar: yiLogo,
   },
 }
 
 export const CHATGPT_HOME_URL = 'https://chat.openai.com'
-export const CHATGPT_API_MODELS = ['gpt-3.5-turbo', 'gpt-3.5-turbo-16k', 'gpt-4', 'gpt-4-32k'] as const
+export const CHATGPT_API_MODELS = ['gpt-3.5-turbo', 'gpt-4', 'gpt-4-turbo'] as const
 export const ALL_IN_ONE_PAGE_ID = 'all'
 
 export const DEFAULT_CHATGPT_SYSTEM_MESSAGE =
   'You are ChatGPT, a large language model trained by OpenAI. Answer as concisely as possible. Knowledge cutoff: 2021-09-01. Current date: {current_date}'
+
+export type Layout = 2 | 3 | 4 | 'imageInput' | 'twoVertical' | 'sixGrid' // twoVertical is deprecated

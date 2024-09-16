@@ -12,6 +12,7 @@ function injectTip() {
   div.style.padding = '10px'
   div.style.margin = '10px'
   div.style.border = '1px solid'
+  div.style.color = 'red'
   document.body.appendChild(div)
 }
 
@@ -22,8 +23,9 @@ async function main() {
     }
   })
   if ((window as any).__NEXT_DATA__) {
-    await Browser.runtime.sendMessage({ event: 'PROXY_TAB_READY' })
-    injectTip()
+    if (await Browser.runtime.sendMessage({ event: 'PROXY_TAB_READY' })) {
+      injectTip()
+    }
   }
 }
 
